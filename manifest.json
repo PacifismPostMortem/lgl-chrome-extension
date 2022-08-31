@@ -10,8 +10,9 @@
       "scripting"
   ],
   "content_scripts":[{
-      "matches":["https://slugify.online/*"],
-      "js": ["./redirect.js"]
+      "matches":["https://admin.lglforms.com/forms/*/publish"],
+      "js": ["./redirect.js"],
+      "css": ["./redirect.css"]
     }
   ]
 }

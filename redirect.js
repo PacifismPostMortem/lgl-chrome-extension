@@ -1,17 +1,22 @@
 var redirectButton = document.createElement('button');
 redirectButton.id = "redirect-button";
-redirectButton.innerHTML = "Redirect";
+redirectButton.innerHTML = "Redirect to dmu/events";
+redirectButton.className = "btn btn-primary btn-redirect";
 
-var urlInput = document.getElementById('input_text');
+var inputUrl = document.querySelector('input');
 
 redirectButton.addEventListener('click', function () {
-    const tagUrl = urlInput.value;
-    // "https://google.com?tagId=<tagId>&<tagUrl>"
-    // Get Tag Id here with 
+    const tagUrl = inputUrl.value;
     // const tagId = document.getElementById('tag_id').value;
     const tagId = 3;
-    const finalUrl = `https://google.com?tagId=${tagId}&tagUrl=${tagUrl}`;
+
+    const redirectBase = "https://google.com";
+    const finalUrl = `${redirectBase}?tagId=${tagId}&tagUrl=${tagUrl}`;
     location.href = finalUrl;
 });
 
-document.querySelector('body').appendChild(redirectButton);
+insertAfter(redirectButton, inputUrl);
+
+function insertAfter(newNode, referenceNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
