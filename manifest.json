@@ -1,0 +1,17 @@
+{
+  "name": "LGL Redirect",
+  "description": "LGL Redirect to DMU Event Creator Page",
+  "version": "0.1.0",
+  "manifest_version": 3,
+  "permissions": [
+      "activeTab",
+      "tabs",
+      "storage",
+      "scripting"
+  ],
+  "content_scripts":[{
+      "matches":["https://slugify.online/*"],
+      "js": ["./redirect.js"]
+    }
+  ]
+}
