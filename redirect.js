@@ -6,12 +6,13 @@ redirectButton.className = "btn btn-primary btn-redirect";
 var inputUrl = document.querySelector('input');
 
 redirectButton.addEventListener('click', function () {
-    const tagUrl = inputUrl.value;
-    // const tagId = document.getElementById('tag_id').value;
-    const tagId = 3;
+    const link = inputUrl.value;
+    const formNameDiv = document.getElementById("sub_nav_bar");
+    const formNameInnerHTML = formNameDiv.innerHTML;
+    const name = formNameInnerHTML.slice(formNameInnerHTML.indexOf("a> ") + 6, formNameInnerHTML.lastIndexOf("\"") );
+    const redirectBase = "https://dmu.events/portal";
 
-    const redirectBase = "https://google.com";
-    const finalUrl = `${redirectBase}?tagId=${tagId}&tagUrl=${tagUrl}`;
+    const finalUrl = `${redirectBase}?link=${link}&name=${name}`;
     location.href = finalUrl;
 });
 
@@ -20,3 +21,5 @@ insertAfter(redirectButton, inputUrl);
 function insertAfter(newNode, referenceNode) {
     referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
+
+
