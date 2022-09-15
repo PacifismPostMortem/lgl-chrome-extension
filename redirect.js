@@ -1,6 +1,6 @@
 var redirectButton = document.createElement('button');
 redirectButton.id = "redirect-button";
-redirectButton.innerHTML = "Redirect to dmu.events";
+redirectButton.innerHTML = "Configure on dmu.events";
 redirectButton.className = "btn btn-primary btn-redirect";
 
 var inputUrl = document.querySelector('input');
